@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator JS</title>
+    <link rel="shortcut icon" href="favIconCalc.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- favicon da calculadora -->
+</head>
+
+<body>
+    <!--Menu na parte superior-->
+    <header>
+        <!--Menu hamburguer-->
+        <div class="float-left">
+            <span class="material-symbols-outlined">
+                menu
+            </span>
+
+            <!-- título 'padrão' -->
+            <h1>Standard</h1>
+
+            <!-- ícone flutuar (se sobrar tempo) -->
+            <span class="material-symbols-outlined">
+                picture_in_picture
+            </span>
+        </div>
+        <div class="float-right">
+            <!-- botão histórico (quando não ta grande) -->
+            <span class="material-symbols-outlined">
+                history
+            </span>
+        </div>
+    </header>
+
+    <main>
+        <!--Display-->
+        <section class="display">
+            <!-- pseudomemória (qual operação foi feita) -->
+            <div id="pseudo" class="display-info">5 x 2 = </div>
+
+            <!-- resultado final-->
+            <div id="result" class="display-info">10</div>
+
+        </section>
+
+        <!--Botões-->
+        <section class="basicGrid">
+            <button class="card">%</button>
+            <button class="card">CE</button>
+            <button class="card">C</button>
+            <button class="card"><span class="material-symbols-outlined">backspace</span></button>
+            <button class="card">1/x</button>
+            <button class="card">x²</button>
+            <button class="card">Raiz</button>
+            <button class="card">÷</button>
+            <button class="card">7</button>
+            <button class="card">8</button>
+            <button class="card">9</button>
+            <button class="card">X</button>
+            <button class="card">4</button>
+            <button class="card">5</button>
+            <button class="card">6</button>
+            <button class="card">-</button>
+            <button class="card">1</button>
+            <button class="card">2</button>
+            <button class="card">3</button>
+            <button class="card">+</button>
+            <button class="card">+/-</button>
+            <button class="card">0</button>
+            <button class="card">,</button>
+            <button class="card">=</button>
+        </section>
+    </main>
+
+</body>
+
+</html>

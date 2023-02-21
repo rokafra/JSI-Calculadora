@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    height: 5vh;
+    width: 100vw;
+    background-color: ghostwhite;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.float-left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+main {
+    height: 95vh;
+    width: 100vw;
+    background-color: ghostwhite;
+}
+
+.display {
+    justify-content: right;
+    height: 30vh;
+}
+
+.display-info {
+    padding: 2vh 2vw;
+    justify-content: right;
+    display: flex;
+}
+
+#pseudo {
+    font-size: 4vh;
+    color: lightgray;
+}
+
+#result {
+    font-size: 10vh;
+}
+
+.basicGrid {
+    height: 65vh;
+    display: grid;
+    gap: 0.2rem;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+
+}
+
+.basicGrid>.card {
+    border-radius: 0.2rem;
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    transition: 0.3s;
+}
+
+.card:hover {
+    opacity: 75%;
+}
+
+.card:nth-last-child(1) {
+    background-color: #005a9e;
+    color: #fff;
+}
