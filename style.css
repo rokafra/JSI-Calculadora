@@ -31,7 +31,7 @@ header {
 main {
     height: 95vh;
     width: 100vw;
-    background-color: ghostwhite;
+    background-color: #f3f3f3;
 }
 
 .display {
@@ -57,21 +57,35 @@ main {
 .basicGrid {
     height: 65vh;
     display: grid;
-    gap: 0.2rem;
+    gap: 0.3rem;
     grid-template-columns: repeat(4, minmax(100px, 1fr));
+    padding: 1vw;
 
 }
 
 .basicGrid>.card {
-    border-radius: 0.2rem;
-    background-color: ghostwhite;
+    border-radius: 0.3rem;
+    background-color: #f9f9f9;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: auto;
     transition: 0.3s;
+    border: none;
+    font-size: 1.2rem;
 }
+ 
+.basicGrid >.number {
+background-color: white;
+font-size: 1.5rem;
+}
+
+.basicGrid >.operator {
+    font-size: 2.2rem;
+    font-weight:lighter;
+}
+
 
 .card:hover {
     opacity: 75%;
