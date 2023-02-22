@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    background-color: ghostwhite;
 }
 
 body {
@@ -13,12 +14,12 @@ body {
 }
 
 header {
-    height: 5vh;
+    height: 10vh;
     width: 100vw;
-    background-color: ghostwhite;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    vertical-align: middle;
 }
 
 .float-left {
@@ -27,6 +28,26 @@ header {
     justify-content: space-between;
 }
 
+.header-icon {
+    margin: 5px 5px 5px 5px;
+    padding: 5px;
+}
+
+.header-icon:hover {
+    border-radius: 20%;
+    background-color: rgb(238, 237, 237);
+}
+
+#type-calc {
+    padding-right: 20px;
+    font-size: 20px;
+}
+
+
+#superior-part-icon {
+    height: 34px;
+    width: 34px;
+}
 
 main {
     height: 95vh;
@@ -36,11 +57,12 @@ main {
 
 .display {
     justify-content: right;
-    height: 30vh;
+    padding-top: 1vh;
+    height: 25vh;
 }
 
 .display-info {
-    padding: 2vh 2vw;
+    padding: 0vh 2vw;
     justify-content: right;
     display: flex;
 }
@@ -52,6 +74,7 @@ main {
 
 #result {
     font-size: 10vh;
+    font-weight: bold;
 }
 
 .basicGrid {
