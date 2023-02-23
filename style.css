@@ -68,13 +68,13 @@ main {
 }
 
 #pseudo {
-    font-size: 4vh;
-    color: lightgray;
+    font-size: 15px;
+    color: gray;
 }
 
 #result {
-    font-size: 10vh;
-    font-weight: bold;
+    font-size: 40px;
+    font-weight: 620;
 }
 
 .basicGrid {
@@ -95,18 +95,18 @@ main {
     align-items: center;
     height: auto;
     transition: 0.3s;
-    border: none;
     font-size: 1.2rem;
-}
- 
-.basicGrid >.number {
-background-color: white;
-font-size: 1.5rem;
+    border: 0.5px solid rgba(128, 128, 128, 0.182);
 }
 
-.basicGrid >.operator {
+.basicGrid>.number {
+    background-color: white;
+    font-size: 1.5rem;
+}
+
+.basicGrid>.operator {
     font-size: 2.2rem;
-    font-weight:lighter;
+    font-weight: lighter;
 }
 
 
