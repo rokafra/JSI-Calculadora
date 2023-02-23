@@ -63,3 +63,11 @@ function hardClear() {
 /* 
 hardClear()
  */
+
+
+function inverter() {
+    // pegar valor oposto do atual
+    let oposto = - display.result.innerHTML
+    // alterar valor da tela pelo oposto
+    display.result.innerHTML = oposto
+}
