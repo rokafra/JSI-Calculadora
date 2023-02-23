@@ -49,27 +49,27 @@
         <!--Botões-->
         <section class="basicGrid">
             <button class="card">%</button>
-            <button class="card">CE</button>
-            <button class="card">C</button>
-            <button class="card"><img src="https://img.icons8.com/ios/50/null/clear-symbol--v1.png" width=35px/></button>
+            <button class="card" onclick="softClear()">CE</button>
+            <button class="card" onclick="hardClear()">C</button>
+            <button class="card" onclick="backspace()"><img src="https://img.icons8.com/ios/50/null/clear-symbol--v1.png" width=35px/></button>
             <button class="card">1/x</button>
             <button class="card">x²</button>
             <button class="card">√</button>
             <button class="card operator">÷</button>
-            <button class="card number">7</button>
-            <button class="card number">8</button>
-            <button class="card number">9</button>
+            <button class="card number" onclick="updateResult(7)">7</button>
+            <button class="card number" onclick="updateResult(8)">8</button>
+            <button class="card number" onclick="updateResult(9)">9</button>
             <button class="card operator">×</button>
-            <button class="card number">4</button>
-            <button class="card number">5</button>
-            <button class="card number">6</button>
+            <button class="card number" onclick="updateResult(4)">4</button>
+            <button class="card number" onclick="updateResult(5)">5</button>
+            <button class="card number" onclick="updateResult(6)">6</button>
             <button class="card operator">-</button>
-            <button class="card number">1</button>
-            <button class="card number">2</button>
-            <button class="card number">3</button>
+            <button class="card number" onclick="updateResult(1)">1</button>
+            <button class="card number" onclick="updateResult(2)">2</button>
+            <button class="card number" onclick="updateResult(3)">3</button>
             <button class="card operator">+</button>
             <button class="card number" onclick="inverter()">+/-</button>
-            <button class="card number">0</button>
+            <button class="card number" onclick="updateResult(0)">0</button>
             <button class="card number">,</button>
             <button class="card">=</button>
         </section>

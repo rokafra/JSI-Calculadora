@@ -48,23 +48,13 @@ function updateResult(value) {
 função do botão de backspace, que apaga o digito menos significativo do result
 */
 
-// VERIFICAR MAIS TARDE
-// VERIFICAR MAIS TARDE
-// VERIFICAR MAIS TARDE
-// VERIFICAR MAIS TARDE
-// VERIFICAR MAIS TARDE
-// VERIFICAR MAIS TARDE
-// VERIFICAR MAIS TARDE
-// VERIFICAR MAIS TARDE
-// VERIFICAR MAIS TARDE
-// VERIFICAR MAIS TARDE
-
-
 function backspace() {
-    display.result.innerHTML = display.result.innerHTML.slice(0, -1)
-
-    if (display.result.innerHTML == "") {
+    //se estiver no último número, apaga e coloca zero
+    if (display.result.innerHTML.length == 1) {
         display.result.innerHTML = 0
+    } else {
+        display.result.innerHTML = display.result.innerHTML.slice(0, -1)
+
     }
 }
 
@@ -80,8 +70,9 @@ função do botão C, que apaga tanto o preview quanto o result
 */
 function hardClear() {
     display.result.innerHTML = 0
-    // display.preview.style = "hidden"
-    display.preview.innerHTML = ""
+    display.preview.style.visibility = "hidden"
+    
+    // display.preview.innerHTML = ""
     cleanResult = false;
     haveOperation = false;
 }
@@ -152,4 +143,3 @@ function getOperation(value) {
             break;
     }
 }
-
