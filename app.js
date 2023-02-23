@@ -31,35 +31,33 @@ function updateResult(value) {
     }
 }
 
-updateResult(0)
-updateResult(1)
-updateResult(0)
-updateResult(0)
-updateResult(0)
-
-
 /*
 função do botão de backspace, que apaga o digito menos significativo do result
 */
-function backspace(){
-    display.result.innerHTML = display.result.innerHTML.slice(0, -1)
+function backspace() {
+    //se estiver no último número, apaga e coloca zero
+    if (display.result.innerHTML.length == 1) {
+        display.result.innerHTML = 0
+    } else {
+        display.result.innerHTML = display.result.innerHTML.slice(0, -1)
+    }
 }
 
 /*
 função do botão CE, que apaga apenas o valor de result, mantendo o preview
 */
-function softClear(){
+function softClear() {
     display.result.innerHTML = 0
 }
 
 /*
 função do botão C, que apaga tanto o preview quanto o result
 */
-function hardClear(){
+function hardClear() {
     display.result.innerHTML = 0
-    // display.preview.style = "hidden"
-    display.preview.innerHTML = ""
+    display.preview.style.visibility = "hidden"
+
 }
 
-hardClear()
+
 
