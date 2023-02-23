@@ -69,10 +69,10 @@ function softClear() {
 função do botão C, que apaga tanto o preview quanto o result
 */
 function hardClear() {
-    display.result.innerHTML = 0
-    display.preview.style.visibility = "hidden"
-    
-    // display.preview.innerHTML = ""
+    display.result.innerHTML = 0 
+    /* display.preview.style.visibility = "hidden" */
+
+    display.preview.innerHTML = ""
     cleanResult = false;
     haveOperation = false;
 }
@@ -113,6 +113,7 @@ function multiply() {
     inputOperation('x');
 }
 
+/* Bug sem limite */
 function equal() {
     display.preview.innerHTML = `${display.preview.innerHTML}${display.result.innerHTML} =`
     cleanResult = true;
