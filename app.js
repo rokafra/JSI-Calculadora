@@ -69,7 +69,7 @@ function softClear() {
 função do botão C, que apaga tanto o preview quanto o result
 */
 function hardClear() {
-    display.result.innerHTML = 0 
+    display.result.innerHTML = 0
     /* display.preview.style.visibility = "hidden" */
 
     display.preview.innerHTML = ""
@@ -142,5 +142,47 @@ function getOperation(value) {
             return (x, y) => x * y;
         default:
             break;
+    }
+}
+
+function percent() {
+   
+    let arrayPreview = display.preview.innerHTML.split(' ')
+
+    console.log(arrayPreview);
+
+    let [num1, operator] = arrayPreview
+
+    let percentage = +display.result.innerHTML / 100 // porcentagem 
+    
+    let previewValue = ''
+
+    switch (operator) {
+        case '+':
+            previewValue = num1 * percentage
+            display.preview.innerHTML = `${display.preview.innerHTML} ${parseFloat(previewValue.toFixed(2))}`
+            break;
+
+        case '-':
+            previewValue =  num1 * percentage
+            display.preview.innerHTML = `${display.preview.innerHTML} ${parseFloat(previewValue.toFixed(2))}`
+            break
+
+        case 'x':
+            previewValue =  percentage
+            display.preview.innerHTML = `${display.preview.innerHTML} ${parseFloat(previewValue.toFixed(2))}`
+
+            break
+
+        case '÷':
+            previewValue =  percentage
+            display.preview.innerHTML = `${display.preview.innerHTML} ${parseFloat(previewValue.toFixed(2))}`
+            
+            break
+
+        default:
+            display.preview.innerHTML = '0'
+            display.result.innerHTML = '0'
+            break
     }
 }
