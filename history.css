@@ -1,11 +1,11 @@
-#historic {
+#history {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
   height: 85vh;
 }
 
-#delete-historic-btn {
+#delete-history-btn {
   object-fit: cover;
   border: none;
   padding: 5px 5px;
@@ -22,7 +22,7 @@
   right: 0vw;
 }
 
-.historic-item-pair {
+.history-item-pair {
   display: flex;
   flex-direction: column;
   justify-content: right;
@@ -30,34 +30,34 @@
   padding: 1vh 1.5vw;
 }
 
-.historic-item-pair:hover {
+.history-item-pair:hover {
   background-color: rgb(238, 237, 237);
   border-radius: 5%;
 }
 
-.historic-preview {
+.history-preview {
   background-color: inherit;
   color: gray;
   padding: 3px 3px;
 }
 
-.historic-result {
+.history-result {
   background-color: inherit;
   font-weight: 620;
   padding: 3px 3px;
 }
 
-#historic::-webkit-scrollbar {
+#history::-webkit-scrollbar {
   width: 8px;
   /* largura da scrollbar */
 }
 
-#historic::-webkit-scrollbar-track {
+#history::-webkit-scrollbar-track {
   background: inherit;
   /* cor do "trilho" da scrollbar */
 }
 
-#historic::-webkit-scrollbar-thumb {
+#history::-webkit-scrollbar-thumb {
   background-color: gray;
   /* Cor do scroll */
   border-radius: 20px;

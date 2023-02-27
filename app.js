@@ -14,6 +14,9 @@ const display = {
 /* Estrutura de dados dedicada ao armazenamento do histórico */
 let history = [];
 
+/* Estrutura de dados dedicada ao armazenamento da memória */
+let memory = [];
+
 /* Primeiro número da operação? */
 /* Este booleano indica se caso um número for digitado se deve apagar o que está no campo result ou não */
 let cleanResult = false;
@@ -241,7 +244,7 @@ function doOperation(operator, value1, value2) {
 }
 
 function saveOnHistory() {
-    /* Historico */
+    /* historyo */
     history.push(
         {
             preview: display.preview.innerHTML,
@@ -251,20 +254,20 @@ function saveOnHistory() {
 }
 
 function printHistory() {
-    let historicDisplay = document.getElementById("historic");
-    historicDisplay.innerHTML = "";
+    let historyDisplay = document.getElementById("history");
+    historyDisplay.innerHTML = "";
     history.forEach((element) =>
-        historicDisplay.innerHTML +=
-        `<div class="historic-item-pair" onclick="putHistoricOnDiplay(this)">
-        <p class="historic-preview">${element.preview}</p>
-        <p class="historic-result">${element.result}</p>
+        historyDisplay.innerHTML +=
+        `<div class="history-item-pair" onclick="putHistoryOnDiplay(this)">
+        <p class="history-preview">${element.preview}</p>
+        <p class="history-result">${element.result}</p>
     </div>`
     );
     /* Caso implementar o memory rever o funcionamento */
-    document.getElementById("delete-historic-btn").style.visibility = "visible";
+    document.getElementById("delete-history-btn").style.visibility = "visible";
 }
 
-function putHistoricOnDiplay(divHTML) {
+function putHistoryOnDiplay(divHTML) {
     /* Coloca os filhos da div recebida como argumento no display */
     display.preview.innerHTML = divHTML.children[0].innerHTML;
     display.result.innerHTML = divHTML.children[1].innerHTML;
@@ -275,11 +278,11 @@ function putHistoricOnDiplay(divHTML) {
     haveOperation = false;
 }
 
-function cleanHistoric() {
+function cleanHistory() {
     history = new Array();
-    document.getElementById("historic").innerHTML = "Ainda não há histórico";
+    document.getElementById("history").innerHTML = "Ainda não há histórico";
     /* Caso implementar o memory rever o funcionamento */
-    document.getElementById("delete-historic-btn").style.visibility = "hidden";
+    document.getElementById("delete-history-btn").style.visibility = "hidden";
 }
 
 function percent() {
@@ -360,3 +363,94 @@ document.addEventListener('keydown', e => {
             break;
     }
 })
+
+
+
+
+
+
+
+function setMemory(memoria){
+    let area = document.getElementById("memory")
+    area.innerText = ""
+    memoria.forEach((elemento) => {
+        let valor = document.createElement("p")
+        valor.classList.add("memory-p")
+        valor.addEventListener("click", (e) => {
+            display.result.innerHTML = e.target.innerHTML
+        })
+        valor.innerText = elemento
+        area.appendChild(valor)
+    })
+
+}
+
+function clearMemory() {
+    memory = []
+    setMemory(memory)
+}
+
+function putMemory() {
+    if (memory.length <= 0) return;
+
+    let stackTop = memory[memory.length - 1]
+    display.result.innerHTML = stackTop
+    setMemory(memory)
+
+}
+
+function sumOnMemory() {
+    if (memory.length <= 0) return;
+
+    let result = +display.result.innerHTML
+    memory[memory.length - 1] += result;
+    setMemory(memory)
+}
+
+function subOnMemory() {
+    if (memory.length <= 0) return;
+    
+    let result = +display.result.innerHTML
+   
+    memory[memory.length - 1] -= result;
+    setMemory(memory)
+
+}
+
+function stackMemory() {
+    let result = display.result.innerHTML
+    memory.push(+result)
+    setMemory(memory)
+    
+}
+
+document.getElementById("historyTab").addEventListener("click", () => {
+    //isMemory = false
+    document.getElementById("history").classList.remove("inactive")
+    document.getElementById("history").classList.add("active")
+    
+    document.getElementById("memory").classList.add("inactive")
+    document.getElementById("memory").classList.remove("active")
+
+    // colocando sublinhado azul
+    let spanHistory = document.getElementById("historyTabStyle")
+    let spanMemory = document.getElementById("memoryTabStyle")
+    spanHistory.classList.add("tab-selected")
+    spanMemory.classList.remove("tab-selected")
+})
+
+document.getElementById("memoryTab").addEventListener("click", () => {
+    
+    document.getElementById("memory").classList.remove("inactive")
+    document.getElementById("memory").classList.add("active")
+
+    document.getElementById("history").classList.add("inactive")
+    document.getElementById("history").classList.remove("active")
+
+    // colocando sublinhado azul
+    let spanHistory = document.getElementById("historyTabStyle")
+    let spanMemory = document.getElementById("memoryTabStyle")
+    spanHistory.classList.remove("tab-selected")
+    spanMemory.classList.add("tab-selected")
+})
+
