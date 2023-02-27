@@ -28,6 +28,12 @@ header {
     justify-content: space-between;
 }
 
+.float-left > h1 {
+
+    text-align: center;
+  
+}
+
 .header-icon {
     margin: 5px 5px 5px 5px;
     padding: 5px;
@@ -43,6 +49,9 @@ header {
     font-size: 20px;
 }
 
+#backspace {
+    width: 2.2vw;
+}
 
 #superior-part-icon {
     height: 34px;
@@ -50,7 +59,7 @@ header {
 }
 
 main {
-    height: 95vh;
+    height: 90vh;
     width: 100vw;
     background-color: #f3f3f3;
 }
@@ -58,7 +67,7 @@ main {
 .display {
     justify-content: right;
     padding-top: 1vh;
-    height: 25vh;
+    height: 20vh;
 }
 
 .display-info {
@@ -77,13 +86,44 @@ main {
     font-weight: 620;
 }
 
+.buttonArea{
+    height: 70vh;
+    width: auto;
+    display: flex;
+    flex-direction:column;
+}
+
+.memoryButtons{
+    height: 5vh;
+    padding: 0 1vw;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    
+}
+
+.memoryButtons > button{
+
+    border: none;
+    cursor: pointer;
+    height: 90%;
+    width: 90%;
+    border-radius:5px;
+    font-weight:400;
+    
+
+}
+
+.memoryButtons > button:hover{
+    background-color: rgba(211, 211, 211, 0.479);
+}
+
 .basicGrid {
     height: 65vh;
     display: grid;
-    gap: 0.3rem;
+    gap: 0.1rem;
     grid-template-columns: repeat(4, minmax(100px, 1fr));
     padding: 1vw;
-
 }
 
 .basicGrid>.card {
@@ -97,6 +137,7 @@ main {
     transition: 0.3s;
     font-size: 1.2rem;
     border: 0.5px solid rgba(128, 128, 128, 0.182);
+    box-shadow: 1px 14px 11px -12px rgba(217,217,217,1);
 }
 
 .basicGrid>.number {
@@ -105,7 +146,7 @@ main {
 }
 
 .basicGrid>.operator {
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     font-weight: lighter;
 }
 
@@ -125,8 +166,7 @@ main {
 
 
 
-
-@media (min-width: 800px) and (orientation: landscape) {
+@media (min-width: 600px) and (orientation:landscape){
     .sidebar {
         display: flex;
         flex-direction: column;

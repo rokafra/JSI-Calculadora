@@ -12,7 +12,7 @@ const display = {
 }
 
 /* Estrutura de dados dedicada ao armazenamento do histórico */
-let historic = new Array();
+let history = [];
 
 /* Primeiro número da operação? */
 /* Este booleano indica se caso um número for digitado se deve apagar o que está no campo result ou não */
@@ -29,17 +29,10 @@ let cleanDisplay = false;
 /* Para impedir a repeticação da operação caso o operador seja pressionado mais de uma vez */
 let digitWasPressed = true;
 
-
-/*
-função centralizada que atualiza o valor do preview em tela por value
-*/
-
-
 /*
 função centralizada que atualiza o valor do result em tela por value
 */
 function updateResult(value) {
-    console.log(cleanDisplay)
     if (cleanDisplay && !haveOperation) {
         hardClear();
         cleanDisplay = false;
@@ -82,6 +75,8 @@ função do botão CE, que apaga apenas o valor de result, mantendo o preview
 function softClear() {
     display.result.innerHTML = 0
 }
+
+
 
 /*
 função do botão C, que apaga tanto o preview quanto o result
@@ -146,6 +141,8 @@ function inverse() {
         display.preview.innerHTML = preview;
     }
     display.result.innerHTML = 1 / displayResult;
+    saveOnHistory()
+    printHistory()
 }
 
 function sqrRoot() {
@@ -157,6 +154,10 @@ function sqrRoot() {
         display.preview.innerHTML = preview;
     }
     display.result.innerHTML = Math.sqrt(displayResult);
+
+    saveOnHistory()
+    printHistory()
+
 }
 
 function sqr() {
@@ -168,11 +169,15 @@ function sqr() {
         display.preview.innerHTML = preview;
     }
     display.result.innerHTML = displayResult * displayResult;
+    saveOnHistory()
+    printHistory()
 }
 
 /* Virgula */
-function coma() {
-    display.result.innerHTML += ",";
+function comma() {
+    if (!display.result.innerHTML.includes(",")) {
+        display.result.innerHTML += ",";
+    }
 }
 
 function equal() {
@@ -184,7 +189,7 @@ function equal() {
     let preview;
 
     let haveEqualsOperator = display.preview.innerHTML.includes("=");
-    console.log(previewMemory);
+
     /* Operações especiais (1/(x), sqr(x), √(x)) */
     if (previewMemory.lenght == 1) {
         preview = `${display.preview.innerHTML} =`
@@ -214,8 +219,8 @@ function equal() {
     }
     display.preview.innerHTML = preview.replaceAll(".", ",");
     display.result.innerHTML = result.toString().replace(".", ",");
-    saveOnHistoric();
-    printHistoric();
+    saveOnHistory();
+    printHistory();
     cleanResult = true;
     haveOperation = false;
 }
@@ -235,9 +240,9 @@ function doOperation(operator, value1, value2) {
     }
 }
 
-function saveOnHistoric() {
+function saveOnHistory() {
     /* Historico */
-    historic.push(
+    history.push(
         {
             preview: display.preview.innerHTML,
             result: display.result.innerHTML,
@@ -245,10 +250,10 @@ function saveOnHistoric() {
     );
 }
 
-function printHistoric() {
+function printHistory() {
     let historicDisplay = document.getElementById("historic");
     historicDisplay.innerHTML = "";
-    historic.forEach((element) =>
+    history.forEach((element) =>
         historicDisplay.innerHTML +=
         `<div class="historic-item-pair" onclick="putHistoricOnDiplay(this)">
         <p class="historic-preview">${element.preview}</p>
@@ -271,7 +276,7 @@ function putHistoricOnDiplay(divHTML) {
 }
 
 function cleanHistoric() {
-    historic = new Array();
+    history = new Array();
     document.getElementById("historic").innerHTML = "Ainda não há histórico";
     /* Caso implementar o memory rever o funcionamento */
     document.getElementById("delete-historic-btn").style.visibility = "hidden";
@@ -291,25 +296,17 @@ function percent() {
 
     switch (operator) {
         case '+':
-            previewValue = num1 * percentage
-            display.preview.innerHTML = `${display.preview.innerHTML}${parseFloat(previewValue.toFixed(2))}`
-            break;
-
         case '-':
             previewValue = num1 * percentage
             display.preview.innerHTML = `${display.preview.innerHTML}${parseFloat(previewValue.toFixed(2))}`
-            break
+            display.result.innerHTML = `${parseFloat(previewValue.toFixed(2))}`
+            break;
 
         case 'x':
-            previewValue = percentage
-            display.preview.innerHTML = `${display.preview.innerHTML}${parseFloat(previewValue.toFixed(2))}`
-
-            break
-
         case '÷':
             previewValue = percentage
             display.preview.innerHTML = `${display.preview.innerHTML}${parseFloat(previewValue.toFixed(2))}`
-
+            display.result.innerHTML = `${parseFloat(previewValue.toFixed(2))}`
             break
 
         default:
@@ -318,3 +315,48 @@ function percent() {
             break
     }
 }
+
+
+document.addEventListener('keydown', e => {
+    let tecla = e.key
+    switch (tecla) {
+        case "Enter":
+            equal()
+            break
+        case "%":
+            percent()
+            break
+        case "Backspace":
+            backspace()
+            break;
+        case "+":
+            plus()
+            break;
+        case "-":
+            minus()
+            break;
+        case "/":
+            divide()
+            break;
+        case "*":
+            multiply()
+            break;
+        case "0":
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
+            updateResult(tecla)
+            break
+        case ",":
+            comma();
+            break;
+        default:
+            break;
+    }
+})
