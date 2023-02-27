@@ -53,11 +53,11 @@
       <section class="buttonArea">
 
         <div class="memoryButtons">
-          <button>MC</button>
-          <button>MR</button>
-          <button>M+</button>
-          <button>M-</button>
-          <button>MS</button>
+          <button onclick="clearMemory()">MC</button>
+          <button onclick="putMemory()">MR</button>
+          <button onclick="sumOnMemory()">M+</button>
+          <button onclick="subOnMemory()">M-</button>
+          <button onclick="stackMemory()">MS</button>
         </div>
 
         <div class="basicGrid">
@@ -100,20 +100,25 @@
 
       <div class="sidebar-tab">
 
-        <button class="button-sidebar">
-          <span class="tab-selected">Histórico</span>
+        <button id="historyTab" class="button-sidebar">
+          <span id="historyTabStyle" class="tab-selected">Histórico</span>
         </button>
 
-        <button class="button-sidebar">
-          <span>Memória</span>
+        <button id="memoryTab" class="button-sidebar">
+          <span  id="memoryTabStyle" >Memória</span>
         </button>
 
       </div>
 
-      <div id="historic" class="tab-info">Ainda não há histórico</div>
+      <div class="sidebar-content">
+        <a id="history" class="tab-info">Ainda não há histórico</a>
+        <a id="memory" class="tab-info inactive"> Ainda não há memória</a>
 
+      </div>
+
+      
       <div id="btn-background">
-        <button onclick="cleanHistoric()" id="delete-historic-btn">
+        <button onclick="cleanHistory()" id="delete-history-btn">
           <span class="material-symbols-outlined"> delete </span>
         </button>
       </div>
